@@ -29,6 +29,8 @@ This project is a web-based platform for hosting and participating in various co
 <img src="p.jpg" width="600">
 <img src="l.png" width="600">
 <img src="hk.jpg" width="600">
+<img src="render.png" width="600">
+<img src="running.png" width="600">
 
 ## Deployed Url
 https://hm0042-teamnova.onrender.com
