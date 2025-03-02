@@ -14,11 +14,12 @@ This project is a web-based platform for hosting and participating in various co
 - **Social Sharing** : Share achievements and competitions.
 - **Discussion Forums** : Community engagement and doubt resolution.
 - **AI-Based Recommendations** : Suggests relevant competitions based on user skills.
+- **AI-Generated Resume** : Generates Resume by filling out neccessary details.
 
 ## Tech Stack
-- Frontend: HTML, Tailwind CSS, Javascript
+- Frontend: HTML, CSS, Javascript
 - Backend: Node.js, Express.js
-- Database: MongoDB
+- Database: MongoDB, MongoDB Atlas
 - Version Control: Git
 - API Testing & Documentation: Postman
 - Hosting: Render 
