@@ -25,10 +25,10 @@ This project is a web-based platform for hosting and participating in various co
 - Code Editor: VS Code
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/db470a60-46d6-44a4-9c22-0133ef5b0d13" width="600">
-<img src="https://github.com/user-attachments/assets/34917745-76c3-4d36-817c-cfbb2df70aa8" width="600">
-<img src="https://github.com/user-attachments/assets/5c602723-778f-4b77-b57c-704eedcfd306" width="600">
-<img src="https://github.com/user-attachments/assets/812d302c-b812-4214-b8de-f807ebfc8e9a" width="600">
+<img src="m.png" width="600">
+<img src="p.jpg" width="600">
+<img src="l.png" width="600">
+<img src="hk.jpg" width="600">
 
 ## Deployed Url
 [Link to Deployed Solution](gfgpccoe.in)
