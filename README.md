@@ -31,10 +31,10 @@ This project is a web-based platform for hosting and participating in various co
 <img src="hk.jpg" width="600">
 
 ## Deployed Url
-[Link to Deployed Solution](gfgpccoe.in)
+https://hm0042-teamnova.onrender.com
 
 ## Video Url
-[Link to Demo Video](video_url)
+https://youtu.be/IQdxVNoVH6s?si=EwOy5PM9FdScrAh-
 
 ## Remarks
 - Grow Buddy is a gamified competition platform for hosting and participating in DSA, CP, and ML contests with real-time leaderboards.
