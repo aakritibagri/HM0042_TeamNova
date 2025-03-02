@@ -1,0 +1,99 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Background inspired by the image */
+body {
+    background: radial-gradient(circle at top, rgba(75, 0, 130, 0.9), #0f172a);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.auth-container {
+    background: linear-gradient(to bottom, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.95));
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(128, 0, 128, 0.8);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Heading and Subtitles */
+h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #c084fc; /* Neon Purple */
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #9ca3af;
+}
+
+/* Input Fields */
+.input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #cbd5e1;
+}
+
+/* Button */
+.btn {
+    background: linear-gradient(90deg, #9333ea, #7c3aed);
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #7c3aed, #6d28d9);
+}
+
+/* Switch Text */
+.switch-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #a1a1aa;
+}
+
+.switch-text a {
+    color: #c084fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}

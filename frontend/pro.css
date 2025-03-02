@@ -1,0 +1,90 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Profile Container */
+.profile-container {
+    background: rgba(147, 51, 234, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+}
+
+/* Profile Card */
+.profile-card {
+    text-align: center;
+    background: #1f1f1f;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.8);
+}
+
+/* Profile Image */
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(147, 51, 234, 0.8);
+}
+
+/* Username */
+.username {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #e5e5e5;
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.8);
+}
+
+/* Role */
+.user-role {
+    font-size: 16px;
+    color: #bbb;
+}
+
+/* Details */
+.profile-details {
+    margin: 20px 0;
+    text-align: left;
+    background: rgba(147, 51, 234, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.detail-item {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* Edit Button */
+.edit-btn {
+    background: rgba(147, 51, 234, 1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.edit-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #9333ea;
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.8);
+    transform: scale(1.05);
+}
