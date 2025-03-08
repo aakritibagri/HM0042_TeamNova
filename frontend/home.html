@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GrowBuddy - Your Tech Companion</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js" defer></script>
+    <style>
+        .host-button {
+    background: linear-gradient(to right, #6d9bff, #bd59ff);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.host-button:hover {
+    background: linear-gradient(to right, #bd59ff, #6d9bff);
+    transform: scale(1.05);
+}
+.profile-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #8a52ff; 
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Website Logo"> </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#about-us">About Us</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#contact">Contact</a>
+            <a href="hosthack.html" class="host-button"><class=img>+</class> Host</a>
+            <div class="profile-icon">
+                <a href="Profile.html">
+                    <img src="user.jpg" alt="User Profile" class="profile-img">
+                </a>
+            </div>
+            
+
+        </nav>
+
+        
+    </header>
+    
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>GrowBuddy</h1>
+        <p>Your Buddy in Every Tech Battle</p>
+    </div>
+    <div class="hero-stats">
+        <a href="hack.html" style="text-decoration: none; color: inherit;"><div>Hackathons</div></a>
+        <a href="dsa.html" style="text-decoration: none; color: inherit;"><div>DSA Contests</div></a>
+        <a href="cp.html" style="text-decoration: none; color: inherit;"><div>CP Contests</div></a>
+        <a href="ml.html" style="text-decoration: none; color: inherit;"><div>ML Competitions</div></a>
+    </div>
+    
+</section>
+
+<section class="features">
+    <h2>Explore Opportunities</h2>
+    <div class="feature-cards">
+        <div class="card">Real-time Contest Alerts</div>
+        <div class="card">Expert Mentorship</div>
+        <div class="card">Networking with Techies</div>
+        <div class="card">Certified Participation</div>
+    </div>
+</section>
+
+<section class="why-choose" id="about-us">
+    <h2>Why Choose GrowBuddy?</h2>
+    <ul>
+        <p>Stay ahead in the competitive programming world with our Updated Contest Calendar, 
+            ensuring you never miss an important coding challenge. Get Guidance from Top Coders
+             who have excelled in prestigious contests, and learn their valuable tips and strategies.
+              Take your skills further by Collaborating with Peers, exchanging ideas, and solving 
+              problems together. All of this combined helps you Boost Your Tech Career, opening doors 
+              to internships, job opportunities, and recognition in the tech community.
+            
+            </p>
+    </ul>
+</section>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+    }
+</script>
+
+
+<div class="faqs-container" id="faqs">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faqs-box">
+        <div class="faq">
+            <h3>What services do you offer?</h3>
+            <p>We offer web development, design, and digital marketing services.</p>
+        </div>
+        <div class="faq">
+            <h3>How can I contact you?</h3>
+            <p>You can reach us through our contact form or via email.</p>
+        </div>
+        <div class="faq">
+            <h3>What is your pricing structure?</h3>
+            <p>Our pricing depends on the project requirements. Contact us for a quote.</p>
+        </div>
+        <div class="faq">
+            <h3>Do you offer maintenance services?</h3>
+            <p>Yes, we offer ongoing maintenance packages.</p>
+        </div>
+        <div class="faq">
+            <h3>How long does a project take?</h3>
+            <p>The timeline depends on the project scope, usually between 2-6 weeks.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="about">About GrowBuddy - Empowering future tech leaders.</div>
+        <div class="contact" id="contact">Contact: support@growbuddy.com</div>
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="about">About GrowBuddy - Empowering future tech leaders.</div>
+            <div class="contact">Contact: support@growbuddy.com</div>
+            <div class="social">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>SOLUTIONS</h4>
+                <ul>
+                    <li><a href="#">Explainable AI</a></li>
+                    <li><a href="#">ML Monitoring</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>USE CASES</h4>
+                <ul>
+                    <li><a href="#">Fraud</a></li>
+                    <li><a href="#">Churn Detection</a></li>
+                    <li><a href="#">Underwriting</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Learn More</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column subscribe">
+                <h4>SUBSCRIBE</h4>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Company Email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© GrowBuddy — 2025</p>
+        </div>
+    </div>
+</footer>
+
+
+

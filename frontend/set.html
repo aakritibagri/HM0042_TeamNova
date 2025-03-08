@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0F0F18;
+            color: #F2F2F2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .settings-container {
+            background: linear-gradient(145deg, #1A1A2E, #0F0F18);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(141, 92, 255, 0.4);
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: #8D5CFF;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .setting-item {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #C0C0C0;
+        }
+
+        input, select {
+            padding: 10px;
+            background-color: #1C1C28;
+            color: #F2F2F2;
+            border: 1px solid #8D5CFF;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input::placeholder {
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #8D5CFF, #5E2BFF);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #5E2BFF;
+            box-shadow: 0 0 10px rgba(141, 92, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+<div class="settings-container">
+    <h2>⚙️ Settings</h2>
+
+    <div class="setting-item">
+        <label for="username">Change Username</label>
+        <input type="text" id="username" placeholder="Enter new username">
+    </div>
+
+    <div class="setting-item">
+        <label for="email">Update Email</label>
+        <input type="email" id="email" placeholder="Enter new email">
+    </div>
+
+    <div class="setting-item">
+        <label for="theme">Theme</label>
+        <select id="theme">
+            <option>Light</option>
+            <option selected>Dark</option>
+        </select>
+    </div>
+
+    <div class="setting-item">
+        <label for="notifications">Notifications</label>
+        <select id="notifications">
+            <option>Enabled</option>
+            <option>Disabled</option>
+        </select>
+    </div>
+
+    <button onclick="saveSettings()">Save Changes</button>
+</div>
+
+<script>
+    function saveSettings() {
+        const username = document.getElementById('username').value || 'N/A';
+        const email = document.getElementById('email').value || 'N/A';
+        const theme = document.getElementById('theme').value;
+        const notifications = document.getElementById('notifications').value;
+
+        alert(`✅ Settings Saved!\n\nUsername: ${username}\nEmail: ${email}\nTheme: ${theme}\nNotifications: ${notifications}`);
+    }
+</script>
+
+</body>
+</html>

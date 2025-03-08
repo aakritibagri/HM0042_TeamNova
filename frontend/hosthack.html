@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host a Hackathon or Contest</title>
+    <link href="https://unpkg.com/lucide-css/dist/lucide.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+            color: white;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            color: #c7d2fe;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #a5b4fc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #c7d2fe;
+            font-size: 0.875rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #818cf8;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            accent-color: #818cf8;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .required {
+            color: #f87171;
+            margin-left: 0.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .event-type-select {
+    padding: 0.5em;
+    background-color: #f0f0f0;
+    color: #333; 
+    border: none;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Host Your Tech Event</h1>
+            <p class="subtitle">Fill in the details below to get started.</p>
+        </header>
+
+        <form class="form-container" id="eventForm">
+            <div class="form-section">
+                <h2 class="form-section-title">
+                    <i class="lucide-info"></i>
+                    Basic Information
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Title<span class="required">*</span></label>
+                        <input type="text" required placeholder="e.g., Tech Innovation Hackathon 2025">
+                    </div>
+                    <div class="form-group">
+                        <label>Event Type<span class="required">*</span></label>
+                        <select required class="event-type-select">
+                            <option value="">Select event type</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="coding-contest">Coding Contest</option>
+                            <option value="workshop">Workshop</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-section-title">
+                    <i class="lucide-calendar"></i>
+                    Schedule
+                </h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Start Date<span class="required">*</span></label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Date<span class="required">*</span></label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time<span class="required">*</span></label>
+                        <input type="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Time<span class="required">*</span></label>
+                        <input type="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-location">Location<span class="required">*</span></label>
+                        <input type="text" id="event-location" name="location" required placeholder="Enter event location">
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-section-title">
+                    <i class="lucide-layout"></i>
+                    Event Details
+                </h2>
+                <div class="form-group">
+                    <label>Description<span class="required">*</span></label>
+                    <textarea required placeholder="Describe your event, its objectives, and what participants can expect..."></textarea>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" min="1" placeholder="e.g., Software">
+                    </div>
+                    <div class="form-group">
+                        <label>Team Size</label>
+                        <input type="number" min="1" placeholder="Maximum members per team">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-section-title">
+                    <i class="lucide-trophy"></i>
+                Eligibilty
+                </h2>
+                <div class="form-group">
+                    <label>Criteria</label>
+                    <textarea placeholder="Describe the eligibility criteria for participants..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Requirements</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            Laptop Required
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            Internet Connection
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox">
+                            Webcam Required
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Create</button>
+        </form>
+    </div>
+
+    <script src="hosthack.js" defer>
+
+    </script>
+</body>
+</html>

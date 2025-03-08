@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Team Created - AI Hackathon Recommendations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #21003a, #631c80, #240046);
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            backdrop-filter: blur(12px);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #e0c3fc;
+        }
+
+        p {
+            font-size: 14px;
+            color: #bdbdbd;
+            margin-bottom: 20px;
+        }
+
+        .recommendation {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .recommendation strong {
+            color: #bb86fc;
+        }
+
+        .recommendation span {
+            background: #7b2cbf;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #7b2cbf;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #9d4edd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🎉 Team Created Successfully!</h1>
+    <p>Your team is ready! Based on your skills, here are some AI-recommended hackathons:</p>
+
+    <div id="recommendationsList">
+        <p style="color: #f8e71c;">Loading AI recommendations...</p>
+    </div>
+
+    <button onclick="fetchRecommendations()">Refresh Recommendations</button>
+</div>
+
+<script>
+// Example Team Skills (this can come from backend/API)
+const teamSkills = ['Frontend', 'Backend', 'AI', 'Web Design'];
+
+// Mocked Hackathon Data (In real case, fetch from server)
+const hackathons = [
+    { name: "AI Innovation Sprint", date: "2025-04-15", skills: ["AI", "Backend"] },
+    { name: "Design Challenge", date: "2025-05-20", skills: ["Web Design"] },
+    { name: "Full Stack Battle", date: "2025-06-12", skills: ["Frontend", "Backend", "Design"] },
+    { name: "AI + Design Fusion", date: "2025-07-10", skills: ["AI", "Web Design"] },
+    { name: "Cloud Hackathon", date: "2025-08-01", skills: ["Cloud", "Backend"] },
+];
+
+// Calculate Skill Match Percentage
+function calculateMatch(hackathonSkills, teamSkills) {
+    const matchedSkills = hackathonSkills.filter(skill => teamSkills.includes(skill));
+    return (matchedSkills.length / hackathonSkills.length) * 100;
+}
+
+// Fetch & Display Recommendations
+function fetchRecommendations() {
+    const recommendationsList = document.getElementById('recommendationsList');
+    recommendationsList.innerHTML = ''; // Clear previous recommendations
+
+    const recommendations = hackathons.map(hackathon => {
+        const match = calculateMatch(hackathon.skills, teamSkills);
+        return { ...hackathon, match };
+    }).filter(h => h.match > 0); // Show only relevant ones
+
+    if (recommendations.length === 0) {
+        recommendationsList.innerHTML = `<p style="color: #ff5c5c;">No suitable hackathons found for your team skills.</p>`;
+        return;
+    }
+
+    recommendations.sort((a, b) => b.match - a.match); // Sort by best match
+
+    recommendations.forEach(hackathon => {
+        const item = document.createElement('div');
+        item.classList.add('recommendation');
+        item.innerHTML = `
+            <strong>${hackathon.name}</strong>
+            <span>${hackathon.date}</span>
+            <small>Match: ${hackathon.match.toFixed(0)}%</small>
+        `;
+        recommendationsList.appendChild(item);
+    });
+}
+
+// Initial fetch when page loads
+window.onload = fetchRecommendations;
+</script>
+
+</body>
+</html>

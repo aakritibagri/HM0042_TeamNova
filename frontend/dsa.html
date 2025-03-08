@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Events 2025</title>
+    <link rel="stylesheet" href="com.css">
+    
+    
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-text">DSA Events 2025</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search DSA Events..." onkeyup="filterEvents()">
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <h1>Upcoming DSA Events 2025</h1>
+            <p>Sharpen your problem-solving skills by participating in top DSA events globally.</p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterByMonth('all')">All</button>
+            <button class="filter-btn" onclick="filterByMonth('upcoming')">Upcoming</button>
+            <button class="filter-btn" onclick="filterByMonth('thisMonth')">This Month</button>
+        </div>
+
+        <section class="hackathon-grid" id="eventGrid">
+            <!-- DSA event cards will be populated by JavaScript -->
+        </section>
+    </main>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <div class="popup-header">
+                <h2 id="popupTitle"></h2>
+                <button class="close-btn" onclick="closePopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="event-details">
+                    <div class="detail-item">
+                        <span class="icon">📍</span>
+                        <p><b>Location:</b> <span id="popupLocation"></span></p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">📅</span>
+                        <p><b>Duration:</b> <span id="popupDuration"></span></p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">🎯</span>
+                        <p><b>Category:</b> <span id="popupCategory"></span></p>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">👥</span>
+                        <p><b>Eligibility:</b> <span id="popupEligibility"></span></p>
+                    </div>
+                </div>
+                <div class="popup-description" id="popupDescription"></div>
+                <div class="popup-actions">
+                    <button class="register-btn" onclick="register()">Register Now</button>
+                    <button class="save-btn" onclick="saveEvent()">Save for Later</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterEvents() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const events = document.querySelectorAll('.hackathon-card');
+
+            events.forEach(event => {
+                const title = event.querySelector('.hackathon-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    event.style.display = 'block';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByMonth(filter) {
+            const allButtons = document.querySelectorAll('.filter-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            event.target.classList.add('active');
+
+            const events = document.querySelectorAll('.hackathon-card');
+
+            const now = new Date();
+            const currentMonth = now.getMonth();
+
+            events.forEach(event => {
+                const month = parseInt(event.dataset.month);
+
+                if (filter === 'all') {
+                    event.style.display = 'block';
+                } else if (filter === 'upcoming') {
+                    event.style.display = (month >= currentMonth) ? 'block' : 'none';
+                } else if (filter === 'thisMonth') {
+                    event.style.display = (month === currentMonth) ? 'block' : 'none';
+                }
+            });
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function register() {
+            alert('You have been registered for the event!');
+            closePopup();
+        }
+
+        function saveEvent() {
+            alert('Event saved for later!');
+            closePopup();
+        }
+    </script>
+      <script src="dsa.js"></script>
+</body>
+</html>

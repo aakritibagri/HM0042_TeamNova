@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        :root {
+            --dark-bg: #1b0532;
+            --dark-card: #211d47;
+            --primary: #8D5CFF;
+            --primary-hover: #a678ff;
+            --text-primary: #f8fafc;
+            --gray-400: #c4b7e6;
+            --sidebar-hover: rgba(141, 92, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+        }
+
+        .flex {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-card);
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+        }
+
+        .user-info h2 {
+            font-size: 1rem;
+        }
+
+        .user-info h5 {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            margin-top: 1rem;
+            list-style: none;
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 1rem;
+            color: var(--gray-400);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-item:hover {
+            background-color: var(--sidebar-hover);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .profile-card {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(141, 92, 255, 0.3);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(141, 92, 255, 0.6);
+        }
+
+        .profile-picture img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+        }
+
+        .about-me {
+            background: var(--dark-card);
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(141, 92, 255, 0.2);
+        }
+
+        .about-me h3 {
+            color: var(--primary);
+        }
+
+        #bio-input {
+            width: 100%;
+            height: 60px;
+            font-size: 1rem;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #2e2857;
+            color: white;
+            border: none;
+            outline: none;
+        }
+
+        .edit-bio-btn, .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .edit-bio-btn:hover, .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex">
+    <aside class="sidebar">
+        <div class="user-info">
+            <img src="aa.jpg" alt="User">
+            <div>
+                <h2>Aakriti Bagri</h2>
+                <p>aakritivabagri@gmail.com</p>
+                <h5>🪙 500 xp</h5>
+            </div>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="ach.html">🏆 Achievements</a></li>
+            <li class="nav-item"><a href="led.html">🥇 Leaderboard</a></li>
+            <li class="nav-item">📄 <button id="generateResume" class="btn">Generate Resume</button></li>
+            <li class="nav-item"><a href="tf.html">🔍 Team Finder</a></li>
+            <li class="nav-item"><a href="set.html">⚙️ Settings</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="profile-card">
+            <div class="profile-picture">
+                <img src="aa.jpg" alt="Profile">
+            </div>
+            <h2>Aakriti Bagri</h2>
+            <p class="username">@aakribag7049</p>
+            <p>🎓 XYZ College of Engineering, Pune</p>
+
+            <div class="about-me">
+                <h3>About Me</h3>
+                <p id="bio-text">Hello! I'm a passionate developer exploring new technologies.</p>
+                <textarea id="bio-input" style="display: none;"></textarea>
+                <button class="edit-bio-btn">Edit Bio</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    document.getElementById('generateResume').addEventListener('click', function () {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(22);
+        doc.text("Resume", 105, 20, null, null, "center");
+
+        doc.setFontSize(14);
+        doc.text("Name: Aakriti Bagri", 20, 40);
+        doc.text("Email: aakritivabagri@gmail.com", 20, 50);
+        doc.text("Username: @aakribag7049", 20, 60);
+        doc.text("College: XYZ College of Engineering, Pune", 20, 70);
+
+        doc.setFontSize(16);
+        doc.text("Achievements", 20, 90);
+        doc.setFontSize(12);
+        doc.text("- Google Generative AI Virtual Internship", 20, 100);
+        doc.text("- Developed AgroMart, a farmer marketplace app", 20, 110);
+        doc.text("- Created Grow Buddy, a coding competition platform", 20, 120);
+
+        doc.save("Resume_Aakriti_Bagri.pdf");
+    });
+
+    document.querySelector(".edit-bio-btn").addEventListener("click", function () {
+        const bioText = document.getElementById("bio-text");
+        const bioInput = document.getElementById("bio-input");
+
+        if (bioInput.style.display === "none") {
+            bioInput.value = bioText.innerText;
+            bioText.style.display = "none";
+            bioInput.style.display = "block";
+            this.innerText = "Save Bio";
+        } else {
+            bioText.innerText = bioInput.value;
+            bioText.style.display = "block";
+            bioInput.style.display = "none";
+            this.innerText = "Edit Bio";
+        }
+    });
+</script>
+
+</body>
+</html>
+

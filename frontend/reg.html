@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            margin: 0;
+            padding: 40px 0; /* Added top & bottom padding */
+            box-sizing: border-box;
+        }
+        .container {
+            background: rgba(20, 20, 20, 0.95);
+            border: 2px solid #6a0dad;
+            box-shadow: 0 0 15px #6a0dad, 0 0 30px rgba(106, 13, 173, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            width: 380px;
+            position: relative;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 15px #6a0dad, 0 0 30px rgba(106, 13, 173, 0.6);
+            }
+            to {
+                box-shadow: 0 0 20px #a445ed, 0 0 40px rgba(164, 69, 237, 0.8);
+            }
+        }
+        h2 {
+            text-align: center;
+            color: #e0e0ff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #6a0dad;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border-color: #a445ed;
+            box-shadow: 0 0 10px rgba(164, 69, 237, 0.6);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6a0dad, #a445ed);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #a445ed, #6a0dad);
+            transform: scale(1.05);
+        }
+        .event-info {
+            margin-bottom: 15px;
+            text-align: center;
+            color: #ddd;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #6a0dad;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Register for Event</h2>
+        
+        <div class="event-info">
+            <strong>Event:</strong> <span id="eventName">Loading...</span><br>
+            <strong>Date:</strong> <span id="eventDate">Loading...</span><br>
+            <strong>Location:</strong> <span id="eventLocation">Loading...</span>
+        </div>
+    
+        <form id="registrationForm">
+            <input type="hidden" name="eventId" id="eventId">
+    
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+    
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+    
+            <label for="college">College/Organization</label>
+            <input type="text" id="college" name="college" required placeholder="Enter your college/organization">
+    
+            <button type="submit">Submit Registration</button>
+        </form>
+    
+        <p id="responseMessage"></p>
+    </div>
+
+<script>
+      // Function to get the competition ID from the URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get competition ID from URL
+    const competitionId = getQueryParam("competitionId");
+
+    if (competitionId) {
+        // Fetch competition details from backend
+        fetch(`http://localhost:5000/api/competitions/${competitionId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Populate event details dynamically
+                document.getElementById('eventName').innerText = data.name;
+                document.getElementById('eventDate').innerText = `${data.start_date} to ${data.end_date}`;
+                document.getElementById('eventLocation').innerText = data.location || "Online";
+                document.getElementById('eventId').value = competitionId;
+            })
+            .catch(error => console.error("Error fetching competition details:", error));
+    } else {
+        console.error("No competition ID found in URL");
+    }
+
+    // Handle Form Submission
+    document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            college: document.getElementById('college').value,
+            competitionId: document.getElementById('eventId').value
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+            document.getElementById('responseMessage').innerText = result.message || 'Registration successful!';
+        } catch (error) {
+            document.getElementById('responseMessage').innerText = 'Error submitting registration.';
+        }
+    });
+</script>
+
+</body>
+</html>
+
