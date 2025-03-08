@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Resume - Purple Theme</title>
+    <link rel="stylesheet" href="res.css">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="heading-glow">📄 Generate Resume</h2>
+
+    <form id="resumeForm" class="resume-form">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter Full Name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter Email">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Enter Phone Number">
+        </div>
+
+        <div class="form-group">
+            <label for="skills">Skills (comma separated):</label>
+            <textarea id="skills" placeholder="E.g. HTML, CSS, JS"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Work Experience:</label>
+            <textarea id="experience" placeholder="Describe your experience"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="button" onclick="generateResume()">✨ Generate Resume</button>
+        </div>
+    </form>
+</div>
+
+<script src="res.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up - Tech Nexus</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="form-box">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join the future of technology</p>
+
+        <form id="signup-form">
+            <div class="input-box">
+                <input type="text" id="signup-name" placeholder="Full Name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="signup-email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="signup-password" placeholder="Password" required>
+            </div>
+
+            <!-- New Fields -->
+            <div class="input-box">
+                <select id="signup-role" required>
+                    <option value="" disabled selected>Select Your Role</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="UI/UX Designer">UI/UX Designer</option>
+                    <option value="Data Scientist">Data Scientist</option>
+                    <option value="AI Engineer">AI Engineer</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="signup-skills" placeholder="Skills (comma separated, e.g., React,Node.js,Figma)" required>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="signup-location" placeholder="Location (e.g., Mumbai, India)" required>
+            </div>
+
+            <div class="input-box">
+                <select id="signup-experience" required>
+                    <option value="" disabled selected>Experience Level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <p class="switch-text">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</div>
+
+</body>
+</html>

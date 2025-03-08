@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grow Buddy -Team Finder</title>
+    <style>
+        /* Reset and General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, rgba(75, 0, 130, 0.9), #0f172a);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding: 40px;
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* Glassmorphism Card - Less Transparency */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05); /* Darker glass effect */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(147, 51, 234, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .detail-item {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* Grid for Teammates */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .teammate-card {
+            background: rgba(255, 255, 255, 0.05); /* Darker for readability */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Create Team Section */
+        .btn-container {
+            margin-top: 30px; /* Increased space between question & buttons */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-container p {
+            margin-bottom: 15px; /* Space between question & buttons */
+            font-size: 16px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #9333ea, #7c3aed);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #7c3aed, #6d28d9);
+        }
+
+        .btn-wrapper {
+            display: flex;
+            gap: 15px; /* Space between Yes/No buttons */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tech Nexus - Team Finder</h1>
+
+<!-- Signed-in User Profile (Glass Card) -->
+<div class="glass-card" id="user-profile">
+    <img src="https://i.pravatar.cc/80?img=5" class="profile-img" alt="User">
+    <h3 id="user-name">Loading...</h3>
+    <div class="detail-item"><strong>Email:</strong> <span id="user-email">-</span></div>
+    <div class="detail-item"><strong>Role:</strong> <span id="user-role">-</span></div>
+    <div class="detail-item"><strong>Skills:</strong> <span id="user-skills">-</span></div>
+    <div class="detail-item"><strong>Experience:</strong> <span id="user-experience">-</span></div>
+</div>
+
+<h2>Recommended Teammates</h2>
+
+<!-- Recommended Teammates (3 Glass Cards in Grid) -->
+<div class="team-grid" id="teammates-container">
+    <!-- Cards will be inserted via JS -->
+</div>
+<!-- Create Team Confirmation -->
+<div class="btn-container">
+    <p>Would you like to create a team with these users?</p>
+    <div class="btn-wrapper">
+        <button class="btn" onclick="window.location.href='cele.html'">Yes</button>
+        <button class="btn" onclick="rejectTeam()">No</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Mock logged-in user data
+        const loggedInUser = {
+            name: "Jane Doe",
+            email: "janedoe@example.com",
+            role: "Frontend Developer",
+            skills: ["HTML", "CSS", "JavaScript"],
+            experience: "2 years"
+        };
+
+        // Populate signed-in user profile
+        document.getElementById('user-name').innerText = loggedInUser.name;
+        document.getElementById('user-email').innerText = loggedInUser.email;
+        document.getElementById('user-role').innerText = loggedInUser.role;
+        document.getElementById('user-skills').innerText = loggedInUser.skills.join(', ');
+        document.getElementById('user-experience').innerText = loggedInUser.experience;
+
+        // Mock profiles (replace with real fetch later)
+        const allProfiles = [
+            {name: "Aman Verma", role: "Backend Developer", skills: ["Node.js", "MongoDB"], experience: "3 years"},
+            {name: "Priya Shah", role: "UI/UX Designer", skills: ["Figma", "Adobe XD"], experience: "2 years"},
+            {name: "Rohit Kumar", role: "AI/ML Engineer", skills: ["Python", "TensorFlow"], experience: "4 years"},
+            {name: "Sara Khan", role: "Database Admin", skills: ["MySQL", "PostgreSQL"], experience: "5 years"}
+        ];
+
+        // AI Logic: Pick 3 complementary teammates (different roles)
+        const recommended = allProfiles.filter(profile => profile.role !== loggedInUser.role).slice(0, 3);
+
+        // Render teammates in grid
+        const container = document.getElementById('teammates-container');
+        recommended.forEach(teammate => {
+            const card = document.createElement('div');
+            card.classList.add('teammate-card');
+            card.innerHTML = `
+                <h4>${teammate.name}</h4>
+                <div class="detail-item"><strong>Role:</strong> ${teammate.role}</div>
+                <div class="detail-item"><strong>Skills:</strong> ${teammate.skills.join(', ')}</div>
+                <div class="detail-item"><strong>Experience:</strong> ${teammate.experience}</div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Team creation logic
+        window.createTeam = function() {
+            alert("Team Created Successfully!");
+            // POST to backend can be added here if needed
+        };
+
+        window.rejectTeam = function() {
+            alert("No worries! You can explore other profiles.");
+        };
+    });
+</script>
+
+</body>
+</html>

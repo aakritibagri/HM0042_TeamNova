@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Role</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h2>Choose Your Role</h2>
+    <p class="role-description">
+        Select your role to get started.
+    </p>
+    <br>
+    <div class="btn-container">
+        <button>User</button>
+        <button>Organiser</button>
+    </div>
+</body>
+</html>

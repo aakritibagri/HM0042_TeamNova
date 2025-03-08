@@ -1,0 +1,98 @@
+/* General Styling */
+body {
+    background-color: #230636;
+    color: #ffffff;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif
+}
+
+/* Achievement Container */
+.achievement-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #1a0941; /* Lighter purple */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(103, 58, 183, 0.8); /* Purple glow effect */
+    transition: 0.3s;
+}
+
+/* Section Titles */
+.achievement-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(103, 58, 183, 0.8); /* Glowing text effect */
+}
+
+/* Badges */
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgb(0, 140, 255);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0, 140, 255, 0.7); /* Blue glow effect */
+    transition: 0.3s;
+}
+
+.badge:hover {
+    box-shadow: 0 0 15px rgba(0, 140, 255, 1), 0 0 30px rgba(0, 140, 255, 0.7);
+    transform: scale(1.1);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 80%;
+    margin: 10px auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Soft white glow */
+}
+
+.progress-bar {
+    height: 10px;
+    background: rgb(0, 140, 255);
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 140, 255, 0.8); /* Glowing progress bar */
+    transition: width 0.5s ease-in-out;
+}
+
+/* Competitions List */
+#competitions-list {
+    list-style: none;
+    padding: 0;
+}
+
+#competitions-list li {
+    background: #4d0b83;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(103, 58, 183, 0.8); /* Purple glow */
+    transition: 0.3s;
+}
+
+#competitions-list li:hover {
+    box-shadow: 0 0 20px rgba(103, 58, 183, 1), 0 0 40px rgba(103, 58, 183, 0.7);
+    transform: scale(1.05);
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #4b0082; }
+    50% { box-shadow: 0 0 20px #8000ff, 0 0 40px #8000ff; }
+    100% { box-shadow: 0 0 10px #4b0082; }
+}
+
+.glowing {
+    animation: glow 1.5s infinite alternate;
+}

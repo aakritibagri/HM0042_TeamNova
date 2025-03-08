@@ -1,0 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Background inspired by the image */
+body {
+    background: radial-gradient(circle at top, rgba(75, 0, 130, 0.9), #0f172a);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.auth-container {
+    background: linear-gradient(to bottom, rgba(31, 41, 55, 0.9), rgba(17, 24, 39, 0.95));
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(128, 0, 128, 0.8);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Heading and Subtitles */
+h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #c084fc; /* Neon Purple */
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #9ca3af;
+}
+
+/* Input Fields */
+.input-box {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    border: none;
+    outline: none;
+    color: #fff; /* White text */
+    border-radius: 8px;
+    font-size: 14px;
+    appearance: none; /* Remove default dropdown styling */
+    cursor: pointer;
+}
+
+/* Styling for the dropdown options */
+.input-box select option {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent white background for options */
+    color: #800080; /* Purple text for options */
+}
+
+/* When an option is selected, background stays transparent */
+.input-box select:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent white on focus */
+    color: #800080; /* Purple text when selected */
+}
+
+/* Arrow Icon for Select (Optional Customization) */
+.input-box {
+    position: relative;
+}
+
+.input-box select {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23cbd5e1" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+
+/* Placeholder Styling */
+.input-box input::placeholder {
+    color: #cbd5e1;
+}
+
+/* Dropdown Styling */
+.input-box select {
+    appearance: none; /* Remove default dropdown styling */
+    cursor: pointer;
+}
+
+/* Arrow Icon for Select (Optional Customization) */
+.input-box {
+    position: relative;
+}
+.input-box select {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23cbd5e1" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* Button */
+.btn {
+    background: linear-gradient(90deg, #9333ea, #7c3aed);
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #7c3aed, #6d28d9);
+}
+
+/* Switch Text */
+.switch-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #a1a1aa;
+}
+
+.switch-text a {
+    color: #c084fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
